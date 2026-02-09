@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DermAssist | AI Skin Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-dna"></i> DermAssist
+            </div>
+            <p class="subtitle">Advanced AI-Powered Skin Diagnostics</p>
+        </header>
+
+        <main>
+            <div class="upload-section" id="drop-zone">
+                <div class="upload-content">
+                    <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                    <h3>Drag & Drop Image Here</h3>
+                    <p>or</p>
+                    <label for="file-input" class="browse-btn">Browse Files</label>
+                    <input type="file" id="file-input" accept="image/*" hidden>
+                    <p class="file-hint">Supported formats: JPG, PNG, BMP, TIFF, WEBP</p>
+                </div>
+                <div class="preview-container hidden" id="preview-container">
+                    <img id="image-preview" src="" alt="Preview">
+                    <button id="remove-btn" class="icon-btn"><i class="fa-solid fa-times"></i></button>
+                </div>
+            </div>
+
+            <button id="analyze-btn" class="analyze-btn hidden">
+                <span class="btn-text">Analyze Image</span>
+                <span class="loader hidden"></span>
+            </button>
+
+            <div class="results-section hidden" id="results-section">
+                <div class="result-card">
+                    <div class="confidence-ring">
+                        <svg viewBox="0 0 36 36" class="circular-chart">
+                            <path class="circle-bg" d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831" />
+                            <path class="circle" stroke-dasharray="0, 100" d="M18 2.0845
+                                a 15.9155 15.9155 0 0 1 0 31.831
+                                a 15.9155 15.9155 0 0 1 0 -31.831" id="confidence-circle" />
+                            <text x="18" y="20.35" class="percentage" id="confidence-text">0%</text>
+                        </svg>
+                        <span class="label">Confidence</span>
+                    </div>
+
+                    <div class="diagnosis-info">
+                        <h4>Predicted Condition</h4>
+                        <h2 id="prediction-text">Analysis Pending...</h2>
+
+                        <div class="metrics-grid">
+                            <div class="metric-item">
+                                <span class="metric-label">Sharpness</span>
+                                <span class="metric-value" id="metric-sharpness">-</span>
+                            </div>
+                            <div class="metric-item">
+                                <span class="metric-label">Texture</span>
+                                <span class="metric-value" id="metric-texture">High</span> <!-- Simulated -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 DermAssist AI Research. For demonstration purposes only.</p>
+    </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
